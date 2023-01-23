@@ -1,24 +1,50 @@
-﻿namespace Jaywapp.Algorithm.String
-{
-    public static class BruthForce
-    {
-        public static int Match(string text, string pattern)
-        {
-            // text char 반복
-            for (int i = 0; i < text.Length - pattern.Length; i++)
-            {
-                int j = 0;
-                // pattern char를 반복하면서 해당 위치의 text char와 비교
-                while (j < pattern.Length && pattern[j] == text[i + j])
-                    j++;
+﻿using Jaywapp.Algorithm.String.Base;
 
-                // pattern와 text의 부분 문자열이 같을 경우
-                var isMatched = j == pattern.Length;
-                if (isMatched)
-                    return i;
+namespace Jaywapp.Algorithm.String
+{
+    public class BruteForce : StringMatch
+    {
+        #region Constructor
+        public BruteForce(string text, string pattern) : base(text, pattern)
+        {
+        }
+        #endregion
+
+        #region Functions
+        public override void Run()
+        {
+            var count = _text.Length - _pattern.Length;
+
+            for (int i = 0; i <= count; i++)
+            {
+                int j;
+
+                for (j = 0; j < _pattern.Length; j++)
+                {
+                    var t = _text[i + j];
+                    var p = _pattern[j];
+
+                    if (t != p)
+                        break;
+                }
+
+                if (j == _pattern.Length)
+                {
+                    Result = i;
+                    return;
+                }
             }
 
-            return -1;
+            return;
         }
+
+        public static int Match(string text, string pattern)
+        {
+            var bruteForce = new BruteForce(text, pattern);
+            bruteForce.Run();
+
+            return bruteForce.Result;
+        }
+        #endregion
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Jaywapp.Algorithm.Enumerable
+namespace Jaywapp.Algorithm.Enumerables
 {
     public static class Combination
     {
