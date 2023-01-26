@@ -46,6 +46,7 @@
     <Compile Include="Enumerables\Combination.cs" />
     <Compile Include="Helper\DisplayHelper.cs" />
     <Compile Include="Interface\ITracable.cs" />
+    <Compile Include="Mathematics\EratosthenesSieve.cs" />
     <Compile Include="Points\Convex\ConvexHull.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="String\Base\StringMatch.cs" />
